@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lulucat - Game Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6a5acd;
+            --primary-light: #8378de;
+            --dark: #333;
+            --light: #f8f9fa;
+            --gray: #eee;
+            --text: #444;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f7ff;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), #8a7ff0);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li a {
+            color: var(--dark);
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: color 0.3s;
+        }
+        .nav-links li a:hover {
+            color: var(--primary);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+
+        /* Games Section */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .game-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+        .game-image {
+            height: 200px;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        .game-details {
+            padding: 20px;
+        }
+        .game-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .game-description {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        .game-features {
+            margin-bottom: 20px;
+        }
+        .game-features li {
+            margin-bottom: 5px;
+            list-style-type: none;
+            padding-left: 20px;
+            position: relative;
+        }
+        .game-features li:before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: var(--primary-light);
+        }
+
+        /* About Section */
+        .about-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .developer-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+        .about-text {
+            max-width: 800px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .social-links {
+            margin-bottom: 20px;
+        }
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            .nav-links {
+                margin-top: 15px;
+            }
+            .nav-links li a {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="logo">
+            <i class="fas fa-gamepad"></i>
+        </div>
+        <h1>Lulucat Games</h1>
+        <p class="tagline">Crafting fun and engaging mobile experiences</p>
+    </div>
+</header>
+
+<nav>
+    <div class="container nav-container">
+        <a href="#" class="brand">Lulucat</a>
+        <ul class="nav-links">
+            <li><a href="#games">Games</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="container">
+    <section id="games">
+        <h2 class="section-title">My Games</h2>
+        <div class="games-grid">
+            <!-- Game 1: Pop Maya -->
+            <div class="game-card">
+                <div class="game-image">
+                    <i class="fas fa-ghost"></i>
+                </div>
+                <div class="game-details">
+                    <h3 class="game-title">Pop Maya</h3>
+                    <p class="game-description">A delightful 2D casual puzzle adventure. Help Maya solve puzzles and collect treasures!</p>
+                    <ul class="game-features">
+                        <li>Addictive puzzle mechanics</li>
+                        <li>Colorful, vibrant graphics</li>
+                        <li>Cloud save progress</li>
+                        <li>No pay-to-win</li>
+                    </ul>
+                    <a href="https://play.google.com/store/apps/details?id=com.yourcompany.popmaya" class="btn" target="_blank">Get on Google Play</a>
+                </div>
+            </div>
+
+            <!-- Game 2: Placeholder for your next game -->
+            <div class="game-card">
+                <div class="game-image">
+                    <i class="fas fa-dragon"></i>
+                </div>
+                <div class="game-details">
+                    <h3 class="game-title">Dragon Runner</h3>
+                    <p class="game-description">An endless runner set in a magical fantasy world. How far can you fly?</p>
+                    <ul class="game-features">
+                        <li>Procedurally generated levels</li>
+                        <li>Upgradeable dragon abilities</li>
+                        <li>Global leaderboards</li>
+                        <li>Daily challenges</li>
+                    </ul>
+                    <a href="#" class="btn">Coming Soon</a>
+                </div>
+            </div>
+
+            <!-- Game 3: Another placeholder -->
+            <div class="game-card">
+                <div class="game-image">
+                    <i class="fas fa-chess"></i>
+                </div>
+                <div class="game-details">
+                    <h3 class="game-title">Pixel Chess</h3>
+                    <p class="game-description">Classic chess reimagined with retro pixel art and challenging AI opponents.</p>
+                    <ul class="game-features">
+                        <li>Multiple AI difficulty levels</li>
+                        <li>Local multiplayer</li>
+                        <li>Learn with tutorial mode</li>
+                        <li>Pixel art themes</li>
+                    </ul>
+                    <a href="#" class="btn">In Development</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About The Developer</h2>
+        <div class="about-content">
+            <div class="developer-image">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="about-text">
+                <p>Hello! I'm Lulucat, an indie mobile game developer passionate about creating fun, polished experiences that players can enjoy anywhere.</p>
+                <p>I focus on 2D games with clean mechanics, appealing visuals, and satisfying gameplay loops. When I'm not coding, you can find me sketching new game ideas or studying player feedback to make my games better.</p>
+                <p>My development stack includes Unity, C#, and various mobile SDKs. I handle all aspects of development from design and programming to publishing and marketing.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="about-content">
+            <p>Have questions about my games or want to provide feedback? I'd love to hear from you!</p>
+            <p>Email: <a href="mailto:ryanflees@hotmail.com">ryanflees@hotmail.com</a></p>
+            <p>Email: <a href="mailto:luluatbai@gmail.com">luluatbai@gmail.com</a></p>
+            <p>For support regarding a specific game, please include the game name in your subject line.</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="social-links">
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2025 Lulucat. All rights reserved.</p>
+        <p><a href="pop_maya_pr_g.html" style="color: #aaa;">Privacy Policy</a></p>
+    </div>
+</footer>
+</body>
+</html>
