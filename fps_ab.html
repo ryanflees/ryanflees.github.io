@@ -8,16 +8,22 @@
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #e0e0e0; background: #121212; max-width: 900px; margin: 0 auto; padding: 20px; }
         h1, h2 { color: #00ff9d; border-bottom: 1px solid #333; padding-bottom: 10px; }
         .container { background: #1e1e1e; padding: 30px; border-radius: 8px; border: 1px solid #333; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .promo-img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px; border: 1px solid #333; display: block; }
         .download-box { background: #252525; border: 1px solid #00ff9d; padding: 20px; margin: 20px 0; border-radius: 6px; }
+        .highlight-box { background: #2a2a1a; border: 2px solid #ffbc00; padding: 20px; margin: 20px 0; border-radius: 6px; position: relative; }
+        .highlight-tag { position: absolute; top: -12px; right: 20px; background: #ffbc00; color: #121212; padding: 2px 10px; font-weight: bold; border-radius: 4px; font-size: 0.8em; text-transform: uppercase; }
         .tutorial-box { background: #1a2a24; border-left: 4px solid #00ff9d; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        .bonus-box { background: #1a202a; border-left: 4px solid #00d4ff; padding: 15px; margin: 20px 0; border-radius: 4px; }
         .btn { display: inline-block; background: #00ff9d; color: #121212; padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 4px; transition: 0.3s; margin-top: 10px; }
         .btn:hover { background: #00cc7e; transform: translateY(-2px); }
+        .btn-highlight { background: #ffbc00; color: #121212; }
+        .btn-highlight:hover { background: #e5a900; }
         .btn-secondary { background: #333; color: #00ff9d; border: 1px solid #00ff9d; }
         .btn-secondary:hover { background: #444; }
         ul { padding-left: 20px; }
         li { margin-bottom: 10px; }
         .footer { margin-top: 50px; font-size: 0.9em; color: #888; border-top: 1px solid #333; padding-top: 20px; }
-        .warning { color: #ffbc00; font-size: 0.9em; }
+        .warning { color: #ffbc00; font-size: 0.9em; font-weight: bold; }
         a.social-link { color: #00ff9d; text-decoration: none; font-weight: bold; }
         a.social-link:hover { text-decoration: underline; }
     </style>
@@ -25,42 +31,54 @@
 <body>
 <div class="container">
     <h1>FPS Animation Baker</h1>
-    <p>A specialized tool for indie developers to bridge the gap between character assets and high-quality first-person animations. Stop manually editing meshes and start baking movements directly inside Unity.</p>
+    
+    <img src="COVER.png" alt="FPS Animation Baker" class="promo-img">
+
+    <p>A specialized tool built for <strong>solo developers and small indie teams</strong> to bridge the gap between character assets and solid first-person animations. Stop manually editing meshes and start baking movements directly inside Unity.</p>
+    <p><em>"This workflow of baking various animations onto a custom arm rig is a solution I have developed and refined over many years of use. I have now decided to release this methodology as a dedicated plugin to help <strong>independent creators</strong> rapidly produce quality FPS assets without needing a massive team."</em></p>
 
     <h2>Core Solutions</h2>
     <ul>
-        <li><strong>Instant FPS Arm Extraction</strong>: Generates a dedicated FPS arm rig from humanoid or custom characters in seconds.</li>
+        <li><strong>Instant FPS Arm Extraction</strong>: Generates a dedicated FPS arm rig from humanoid or custom characters in seconds—perfect for keeping workflows lean.</li>
         <li><strong>Universal Animation Retargeting</strong>: Bake movements from existing FPS libraries directly onto your custom character bones.</li>
         <li><strong>The IK Bridge</strong>: Built-in IK solver ensures hands land exactly where they need to be on the weapon.</li>
         <li><strong>Unity-Centric Workflow</strong>: Real-time handles in Scene View for adjusting grips and hand positions during Play Mode.</li>
     </ul>
 
     <div class="download-box">
-        <h3>Get the Tool</h3>
-        <p><strong>Core Plugin</strong>: /*Available*/ on the Unity Asset Store(in review process). Includes all baking and retargeting scripts.</p>
-        <a href="https://assetstore.unity.com/publishers/110534" class="btn">View on Unity Asset Store</a>
+        <h3>1. Get the Tool</h3>
+        <p><strong>Core Plugin</strong>: Now available on the Unity Asset Store. A must-have for small teams managing their own animation pipelines.</p>
+        <a href="https://assetstore.unity.com/packages/slug/370556" class="btn">View on Unity Asset Store</a>
+    </div>
 
-        <hr style="border: 0; border-top: 1px solid #444; margin: 25px 0;">
-
-        <h3>Extension Resources</h3>
-        <p><strong>LPSP Demo Project</strong>: Pre-configured Unity project with Low Poly Shooter Pack support.</p>
-        <p class="warning">Note: Requires the free sample or paid version of "Low Poly Shooter Pack" from the Asset Store to function.</p>
+    <div class="highlight-box">
+        <span class="highlight-tag">Highly Recommended</span>
+        <h3>2. Extension Resources (Must-Have!)</h3>
+        <p>This extension is <strong>strongly recommended</strong> for all users as it includes pre-configured support and data for the <strong>Low Poly Shooter Pack</strong>.</p>
+        <p><strong>LPSP Demo Project</strong>: A ready-to-use Unity project that integrates all LPSP animations, allowing you to bake them onto your custom characters immediately.</p>
+        <p class="warning">Essential: Provides all animation data needed for Low Poly Shooter Pack compatibility.</p>
 
         <div style="margin-top: 15px;">
-            <a href="https://github.com/ryanflees/FPSAnimationBaker_Extension/archive/refs/heads/main.zip" class="btn btn-secondary">Download ZIP</a>
+            <a href="https://github.com/ryanflees/FPSAnimationBaker_Extension/archive/refs/heads/main.zip" class="btn btn-highlight">Download Extension (ZIP)</a>
             <p style="font-size: 0.85em; color: #888; margin-top: 10px;">
-                Or clone via Git: <code style="color: #00ff9d;">https://github.com/ryanflees/FPSAnimationBaker_Extension.git</code>
+                Or clone via Git: <code style="color: #ffbc00;">https://github.com/ryanflees/FPSAnimationBaker_Extension.git</code>
             </p>
         </div>
     </div>
 
     <div class="tutorial-box">
-        <h3>Video Tutorials</h3>
+        <h3>Plugin Tutorials</h3>
         <ul style="list-style: none; padding-left: 0;">
             <li><a href="https://youtu.be/Xwm-PHFfDCc" class="social-link">📺 1, Basic Workflow</a></li>
             <li><a href="https://youtu.be/dGH3TTSzrHc" class="social-link">📺 2, Helper Scripts</a></li>
             <li><a href="https://youtu.be/b6fu-xRkrvY" class="social-link">📺 3, Re-Use LPSP Weapon</a></li>
         </ul>
+    </div>
+
+    <div class="bonus-box">
+        <h3>Bonus Tutorial: FPS System Breakdown</h3>
+        <p>A deep dive into FPS system mechanics and logic. Recommended for <strong>solo and small-team developers</strong> looking to understand the core architecture behind efficient FPS systems.</p>
+        <a href="https://youtu.be/CmEyXX-7EAc" class="social-link" style="color: #00d4ff;">📺 FPS System Breakdown & Analysis</a>
     </div>
 
     <div class="footer">
